@@ -3,6 +3,8 @@ package com.dileep.product_service.service.impl;
 import com.dileep.product_service.model.Product;
 import com.dileep.product_service.repository.ProductRepository;
 import com.dileep.product_service.service.ProductService;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -17,8 +19,8 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public List<Product> getAllProducts() {
-        return productRepository.findAll();
+    public Page<Product> getAllProducts(int page, int size) {
+        return productRepository.findAll(PageRequest.of(page, size));
     }
 
     @Override
