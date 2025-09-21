@@ -20,3 +20,12 @@ spring:
 jwt:
   secret: my_super_secret_key_that_is_long_enough_123456
 
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,metrics,info
+  endpoint:
+    health:
+      show-details: always
+
