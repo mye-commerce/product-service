@@ -44,4 +44,9 @@ public class ProductController {
         productService.deleteProduct(id);
         return ResponseEntity.noContent().build();
     }
+
+    @PostMapping("/bulk")
+    public List<Product> getProductsByIds(@RequestBody List<Long> ids) {
+        return productService.getProductsByIds(ids);
+    }
 }

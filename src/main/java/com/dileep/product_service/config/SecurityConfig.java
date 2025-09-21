@@ -22,7 +22,7 @@ public class SecurityConfig {
         http
                 .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/actuator/**").permitAll() // optional
+                        .requestMatchers("/actuator/**", "/api/products/bulk").permitAll() // optional
                         .requestMatchers("/api/products/**").authenticated()
                         .anyRequest().permitAll()
                 )

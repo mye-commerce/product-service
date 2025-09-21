@@ -48,5 +48,9 @@ public class ProductServiceImpl implements ProductService {
     public void deleteProduct(Long id) {
         productRepository.deleteById(id);
     }
+
+    public List<Product> getProductsByIds(List<Long> ids) {
+        return productRepository.findAllById(ids);
+    }
 }
 
